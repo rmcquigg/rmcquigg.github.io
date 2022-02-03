@@ -2224,6 +2224,7 @@ input, select, textarea {
 /* Menu */
 
 	ul.menu {
+		position: fixed;
 		list-style: none;
 		padding-left: 0;
 	}
