@@ -2530,6 +2530,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
+		position: fixed;
 		text-align: center;
 		padding: 3em 0 0 0;
 		background-color: #fff;
@@ -2549,9 +2550,14 @@ input, select, textarea {
 				letter-spacing: -0.025em;
 				border: 0;
 			}
+/* Nav */
+
+	body {
+		padding-top: 3.25em;
+	}
 
 	#nav {
-		position: relative;
+		position: fixed;
 		cursor: default;
 		background-color: #333;
 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
