@@ -2085,6 +2085,12 @@ input, select, textarea {
 			top: 0.25em;
 		}
 
+		.image.about {
+			display: block;
+			float: left;
+			padding: 15em;
+		}
+
 			.image.left img {
 				display: block;
 				width: 100%;
