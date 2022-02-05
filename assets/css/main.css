@@ -2066,9 +2066,11 @@ input, select, textarea {
 	.image {
 		border: 0;
 		display: inline-block;
+		float:left;
 		position: relative;
 		border-radius: 5px;
 	}
+		
 
 		.image img {
 			display: inline-block;
@@ -2107,6 +2109,18 @@ input, select, textarea {
 				width: 100%;
 			}
 
+		.image.round {
+			width: 200px;
+          		height: 200px;
+            		border-radius: 50%;
+            		text-align: center;
+            		font-size: 30px;
+           		float: left;
+            		font-weight: bold;
+			shape-outside: circle();
+            		background-color: Green;
+            		color: white;
+		}
 /* Icon */
 
 	.icon {
