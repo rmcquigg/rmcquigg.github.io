@@ -134,9 +134,9 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		color: inherit;
-		font-weight: 550;
+		font-weight: 500;
 		line-height: 1.5em;
-		margin-bottom: 1em;
+		margin-bottom: 0.25em;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -146,7 +146,7 @@ input, select, textarea {
 
 		h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 			font-style: normal;
-			font-weight: 300;
+			font-weight: 450;
 		}
 
 	h2 {
