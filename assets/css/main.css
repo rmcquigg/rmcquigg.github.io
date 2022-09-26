@@ -132,7 +132,14 @@ input, select, textarea {
 
 	p, ul, ol, dl, table, blockquote {
 		margin: 0 0 2em 0;
+		font-weight: 500;
+	}
+
+	q {
+		color: #fff;
 		font-weight: 550;
+		line-height: 1.5em;
+		margin-bottom: 0.25em;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
