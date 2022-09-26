@@ -136,14 +136,14 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: inherit;
+		color: #474747;
 		font-weight: 550;
 		line-height: 1.5em;
 		margin-bottom: 0.25em;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: inherit;
+			color: #474747;
 			text-decoration: none;
 		}
 
