@@ -1,5 +1,6 @@
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+/*@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 
 /*
 	Arcana by HTML5 UP
@@ -130,7 +131,7 @@ input, select, textarea {
 
 	p, ul, ol, dl, table, blockquote {
 		margin: 0 0 2em 0;
-		font-weight: 500;
+		font-weight: 550;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
