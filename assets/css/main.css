@@ -136,7 +136,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
+		color: #474747;
 		font-weight: 550;
 		line-height: 1.5em;
 		margin-bottom: 0.25em;
@@ -148,8 +148,9 @@ input, select, textarea {
 		}
 
 		h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+			color: #fff;
 			font-style: normal;
-			font-weight: 450;
+			font-weight: 550;
 		}
 
 	h2 {
