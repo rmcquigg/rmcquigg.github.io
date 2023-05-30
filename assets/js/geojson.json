@@ -1,8 +1,14 @@
-var geojson = {
-  "geometry": {
-  "type": "Point", "coordinates": [
-    [39.26443303,-75.5935425,'Hc55-41']
-    [39.26418873,-75.59324449,'Hc55-40']
-    [39.55138476,-75.65871113,'Ed21-21']
-  ]
+var geojsonFeatures = {
+    "type": "Feature",
+    "properties": {
+        "name": "Hc55-41",
+        "screen top": "107",
+        "screen bottom": "112"
+        "date installed": "12-Nov-1995"
+  
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [39.26443303,-75.5935425]
+    }
 };
