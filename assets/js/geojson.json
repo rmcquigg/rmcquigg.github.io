@@ -1,5 +1,6 @@
 var geojson = {
-  type: 'LineString', coordinates: [
+  "geometry": {
+  "type": "Point", "coordinates": [
     [39.26443303,-75.5935425,'Hc55-41']
     [39.26418873,-75.59324449,'Hc55-40']
     [39.55138476,-75.65871113,'Ed21-21']
