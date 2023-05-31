@@ -21,7 +21,15 @@
     		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-	L.geoJSON(wells).addTo(map);
+	var markerOptions = {
+	   clickable: true,
+	   color: 'red',
+	   fillColor: '#f03',
+	   fillOpacity: 0.5,
+	   radius: 50
+	}
+	var pts = L.geoJSON(wells,markerOptions)
+	pts.addTo(map)
 	
 	</script>
 
