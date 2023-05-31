@@ -11,6 +11,10 @@ var wells = [{ "type": "FeatureCollection",
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [-75.59324449,39.26418873]},
       "properties": {"Network": "Real Time","DGSID":"Hc55-40","screen top":"201 ft","screen bottom":"251 ft","date installed":"19-Dec-1997"}
+      },
+    { "type": "Feature",
+      "geometry": {"type": "Point", "coordinates": [-75.65871113,39.55138476]},
+      "properties": {"Network": "Real Time","DGSID":"Ed21021","screen top":"187 ft","screen bottom":"197 ft","date installed":"04-Jan-2001"}
       }
     ]
   }
