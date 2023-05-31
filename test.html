@@ -37,8 +37,8 @@
 	L.geoJSON(wells, {
 	    style: function(feature) {
 		switch (feature.properties.type) {
-		    case 'Real Time': return {color: "#ff0000"};
-		    case 'Quarterly': return {color: "#0000ff"};
+		    case "Real Time": return {color: "#ff0000"};
+		    case "Quarterly": return {color: "#0000ff"};
 		}
 	    }
 	}).addTo(map);
