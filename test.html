@@ -31,7 +31,7 @@
 	    opacity: 1,
 	    fillOpacity: 0.8
 	};
-	var placesLeaflet = L.geoJSON(geojsonFeatures,{
+	L.geoJSON(geojsonFeatures,{
     		pointToLayer: function (feature, latlng) {
         	return L.circleMarker(latlng, geojsonMarkerOptions);
     	}).addTo(map);
