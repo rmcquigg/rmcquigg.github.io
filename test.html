@@ -37,7 +37,16 @@
 		</div>
 		<div class="column" id="plot">
 			<h3>Delaware Groundwater Monitoring Network</h3>
-			<iframe src="docs/Hc55-41.html" id="inneriframe" scrolling="no" width="100%" frameborder="0"></iframe>
+			<iframe id="github-iframe" src=""></iframe>
+			<script>
+			    fetch('https://raw.githubusercontent.com/rmcquigg/rmcquigg.github.io/main/docs/Hc55-41.html')
+				.then(function(response) {
+				    return response.json();
+				}).then(function(data) {
+				    var iframe = document.getElementById('github-iframe');
+				    iframe.src = 'data:text/html;base64,' + encodeURIComponent(data['content']);
+				});
+			</script>
 		</div>
 	</div>
 
