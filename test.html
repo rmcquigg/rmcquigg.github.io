@@ -22,6 +22,47 @@
 	}).addTo(map);
 
 	L.geoJson(wells).addTo(map);
+		
+	<div id="tester" style="width:600px;height:250px;"></div>
+      	function read_data() {
+        	d3.csv(
+		  "https://drive.google.com/file/d/17_bmjL9huH-WaDLwFGTJkTtML2_4lYcG/view?usp=share_link",
+		  function (data) {
+		    processData(data);
+		  }
+		);
+	      }
+
+      	function processData(allRows) {
+		console.log(allRows);
+		var x = [];
+		var y = [];
+
+		for (var i = 0; i < allRows.length; i++) {
+		  row = allRows[i];
+		  x.push(row["x"]);
+		  y.push(row["y"]);
+		}
+		console.log("Y", y);
+
+		Plotly.restyle(
+		  graph,
+		  {
+		    y: y,
+		  },
+		  [0]
+		);
+	      }
+
+	      Plotly.newPlot(graph, [
+		{
+		  y: [1, 2, 3],
+		  mode: "lines",
+		  line: { color: "#80CAF6" },
+		},
+	      ]);
+
+	      var interval = setInterval(read_data, 1000);
 	</script>
 
 	
