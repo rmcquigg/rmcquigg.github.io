@@ -34,7 +34,7 @@
 
 			function onEachFeature(feature, layer) {
     			if (feature.properties && feature.properties.DGSID) {
-				layer.bindPopup("DGSID:"+" "+feature.properties.DGSID<br>"Screen top:"+" "+feature.properties.screen_top<br>"Screen bottom:"+" "+feature.properties.screen_bot<br>"Date installed:"+" "+feature.properties.date_installed<br>);
+				layer.bindPopup("DGSID:"+" "+feature.properties.DGSID);
 			    }
 			}
 
