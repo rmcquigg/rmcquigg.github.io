@@ -24,8 +24,23 @@
 	    "properties": {"type": "Real Time","DGSID":"Hc55-41","screen top":"107 ft","screen bottom":"112 ft","date installed":"12-Nov-1995"},
 	    "geometry": {
 		"type": "Point",
-		"coordinates": [-75.5935425,39.26443303]}
+		"coordinates": [-75.5935425,39.26443303]}, {
+	    "type": "Feature",
+	    "properties": {"type": "Quarterly","DGSID":"Ie55-06","screen top":"335 ft","screen bottom":"345 ft","date installed":"15-Aug-2017"},
+	    "geometry": {
+		"type": "Point",
+		"coordinates": [-75.432825,39.174419,]}
 	}];
+	
+	L.geoJSON(wells, {
+	    style: function(feature) {
+		switch (feature.properties.Type) {
+		    case 'Real Time': return {color: "#ff0000"};
+		    case 'Quarterly': return {color: "#0000ff"};
+		}
+	    }
+	}).addTo(map);
+		
 	L.geoJSON(wells).addTo(map);
 	</script>
 
