@@ -32,7 +32,7 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(map);
 
-			$.getJSON("assets/js/wells.geojson",function(data){
+			L.getJSON("assets/js/wells.geojson",function(data){
 				var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
 				featureLayer.bindPopup(feature.properties.DGSID);
