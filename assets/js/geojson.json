@@ -9,6 +9,6 @@ var wells = [{
 	    "properties": {"type": "Quarterly","DGSID":"Ie55-06","screen top":"335 ft","screen bottom":"345 ft","date installed":"15-Aug-2017"},
 	    "geometry": {
 		"type": "Point",
-		"coordinates": [-75.432825,39.174419,]}
+		"coordinates": [-75.432825,39.174419]}
 	}
 	];
