@@ -1,4 +1,4 @@
-var wells = { "type": "FeatureCollection",
+var wells = [{ "type": "FeatureCollection",
   "features": [
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [-75.432825,39.174419]},
@@ -10,3 +10,4 @@ var wells = { "type": "FeatureCollection",
       }
     ]
   }
+];
