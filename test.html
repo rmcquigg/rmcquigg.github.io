@@ -34,7 +34,7 @@
 
 			function onEachFeature(feature, layer) {
     			if (feature.properties && feature.properties.DGSID) {
-				layer.bindPopup("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed);
+				.bindPopup("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed);
 			    }
 			}
 
@@ -67,19 +67,12 @@
 			    opacity: 1,
 			    fillOpacity: 0.8
 			};
-			
-				
-			var popup = L.popup();
 
-			function onMapClick(e) {
-			    popup
-				.setContent("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed)
-				.openOn(map);
-			}
-
-			map.on('click', onMapClick);
-
-
+			L.geoJSON(wells, {
+			    pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, geojsonMarkerOptions);
+			    }
+			}).addTo(map);
 			</script>
 		</div>
 		<div class="column" id="plot" style="height:100vh;">
