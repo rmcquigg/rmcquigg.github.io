@@ -32,7 +32,8 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(map);
 
-			L.geoJson(wells).addTo(map);
+			var myLayer = L.geoJSON().addTo(map);
+			myLayer.addData(wells);
 			</script>
 		</div>
 		<div class="column" id="plot">
