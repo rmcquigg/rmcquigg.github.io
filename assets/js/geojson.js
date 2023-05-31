@@ -2,7 +2,7 @@ var wells = [{ "type": "FeatureCollection",
   "features": [
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [-75.432825,39.174419]},
-      "properties": {"Network": "Quarterly","DGSID":"Ie55-06","screen top":"335 ft","screen bottom":"345 ft","date installed":"15-Aug-2017"}
+      "properties": {"Network": "Quarterly","DGSID":"Ie55-06","screen top":"335 ft","screen bottom":"345 ft","date installed":"15-Aug-2017"},
       },
     { "type": "Feature",
       "geometry": {"type": "Point", "coordinates": [-75.5935425,39.26443303]},
