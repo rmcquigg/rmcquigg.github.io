@@ -10,22 +10,24 @@
 </head>
 
 <body>
-	<div class="column" id="map" style="height:100vh;width:50vh;">
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-		<script src="assets/js/geojson.js" type="text/javascript"></script>
+	<div class="row">
+		<div class="column" id="map" style="height:100vh;width:50vh;">
+			<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+			<script src="assets/js/geojson.js" type="text/javascript"></script>
 
-		<script>
-		var map = L.map('map').setView([39.163596,-75.524578],8);
-		L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-			maxZoom: 19,
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
+			<script>
+			var map = L.map('map').setView([39.163596,-75.524578],8);
+			L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+				maxZoom: 19,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
 
-		L.geoJson(wells).addTo(map);
-		</script>
-	</div>
-	<div class="column" id="plot">
-		<h3>"Delaware Groundwater Monitoring Network"</h3>	
+			L.geoJson(wells).addTo(map);
+			</script>
+		</div>
+		<div class="column" id="plot">
+			<h3>"Delaware Groundwater Monitoring Network"</h3>	
+		</div>
 	</div>
 
 
