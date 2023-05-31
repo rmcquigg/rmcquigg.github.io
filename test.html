@@ -14,7 +14,7 @@
 	.column {
 	float: left;
 	width: 50%;
-	column-gap: 10px;
+	column-gap: 50px;
 	}
 	</style>
 </head>
@@ -39,7 +39,7 @@
 			<h3>Delaware Groundwater Monitoring Network</h3>
 			<iframe id="github-iframe" src=""></iframe>
 			<script>
-			    fetch('https://raw.githubusercontent.com/rmcquigg/rmcquigg.github.io/main/docs/Hc55-41.html')
+			    fetch('https://api.github.com/rmcquigg/rmcquigg.github.io/main/docs/Hc55-41.html')
 				.then(function(response) {
 				    return response.json();
 				}).then(function(data) {
