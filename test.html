@@ -19,6 +19,12 @@
     		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
+	function onEachFeature(feature, layer) {
+	    // does this feature have a property named popupContent?
+	    if (feature.properties && feature.properties.DGSID) {
+		layer.bindPopup(feature.properties.DGSID);
+	    }
+	}
 	var wells = [{
 	    "type": "Feature",
 	    "properties": {"type": "Real Time","DGSID":"Hc55-41","screen top":"107 ft","screen bottom":"112 ft","date installed":"12-Nov-1995"},
@@ -41,9 +47,8 @@
 		    case "Quarterly": return {color: "#0000ff"};
 		}
 	    }
-	}).addTo(map);
-		
-	L.geoJSON(wells).addTo(map);
+	},{onEachFeature: onEachFeature}).addTo(map);
+	
 	</script>
 
 	
