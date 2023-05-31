@@ -33,7 +33,19 @@
 			}).addTo(map);
 
 			var myLayer = L.geoJSON().addTo(map);
-			myLayer.addData(wells);
+			var geojsonMarkerOptions = {
+			    radius: 5,
+			    fillColor: "#ff7800",
+			    color: "#000",
+			    weight: 1,
+			    opacity: 1,
+			    fillOpacity: 0.8
+			};
+			myLayer.addData(wells{
+			    pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, geojsonMarkerOptions);
+			    }
+			}).addTo(map);
 			</script>
 		</div>
 		<div class="column" id="plot">
