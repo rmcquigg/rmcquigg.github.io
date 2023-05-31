@@ -23,7 +23,7 @@
 	<div class="row">
 		<div class="column" id="map" style="height:100vh;">
 			<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-			<script src="assets/js/geojson.js" type="text/javascript"></script>
+			<script src="assets/js/wells.geojson" type="text/javascript"></script>
 
 			<script>
 			var map = L.map('map').setView([39.163596,-75.524578],8);
@@ -32,16 +32,13 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(map);
 
-			var myLayer = L.geoJSON().addTo(map);
-			
-			L.geoJSON(wells, {
-			    style: function(feature) {
-				switch (feature.properties.Network) {
-				    case 'Real Time': return {color: "#ff0000"};
-				    case 'Quarterly':   return {color: "#0000ff"};
+			$.getJSON("assets/js/wells.geojson",function(data){
+				var datalayer = L.geoJson(data ,{
+				onEachFeature: function(feature, featureLayer) {
+				featureLayer.bindPopup(feature.properties.DGSID);
 				}
-			    }
-			}).addTo(map);
+			}).addTo(newMap);
+
 			</script>
 		</div>
 		<div class="column" id="plot">
