@@ -1,1 +1,71 @@
+<!---HTML DOC--->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS Maps SDK for JavaScript Test Map</title>
 
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width:75%;
+      }
+      #column {
+        float:left;
+        width:100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.26/"></script>
+    
+     <script>
+      require(["esri/config", "esri/Map", "esri/views/MapView","esri/layers/FeatureLayer"], function(esriConfig, Map, MapView,FeatureLayer) {
+        esriConfig.apiKey = "AAPK62faaef133ad4beeb2c42f8e3c79d1844Al0Tpvx-kjUbJtgA-GlxGzkkqmEQLHiJRnLFVy0JPiW2QOKEPGYqN49U3px7mPz";
+
+        const map = new Map({
+          basemap: "arcgis-topographic" // Basemap layer service
+        });
+        const view = new MapView({
+          map: map,
+          center: [-75.524578,39.163596], // Longitude, latitude
+          zoom: 8, // Zoom level
+          container: "viewDiv" // Div element
+        });
+        
+        const wellRenderer = {
+          "type": "simple",
+          "symbol": {
+            "type": "simple-marker",
+            "color":"blue",
+            "outline":"black",
+            "width": "18px",
+            "opacity":0.8
+          }
+        }
+        const wells = new FeatureLayer({
+          url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/RealTime_sites_view/FeatureServer",
+          renderer: wellRenderer
+        });
+        
+        map.add(wells);
+     
+      });
+    </script>
+
+  </head>
+  <body>
+	  <div class="row">
+      <div class=="column" id="viewDiv" style="height:100vh;"></div>
+      
+      <div class="column" id="plot">
+      <h3 style=font-family: "Open Sans,Helvetica">Delaware Groundwater Monitoring Network</h3>
+			<iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid=Ie55-06" width="100%" height="100%"></iframe> 
+      </div>
+    </div>
+  </body>
+</html>
