@@ -35,7 +35,14 @@
 				layer.bindPopup("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed);
 			    }
 			}
-
+			function onClick_Marker(e) {
+			  var marker = e.target;
+			  popup = L.popup()
+			    .setLatLng(marker.getLatLng())
+			    .setContent("The number id is: " + marker.wells.DGSID)
+			    .openOn(map);
+			}
+			
 			var wells = { "type": "FeatureCollection",
 			  "features": [
 			    { "type": "Feature",
@@ -60,6 +67,8 @@
 			L.geoJSON(wells, {
 			    onEachFeature: onEachFeature
 			}).addTo(map);
+				
+
 			</script>
 		</div>
 		<div class="column" id="plot" style="height:100vh;">
