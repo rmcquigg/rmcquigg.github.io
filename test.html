@@ -35,20 +35,7 @@
 				layer.bindPopup("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed);
 			    }
 			}
-			function getColor(d) {
-			    return d = "Real Time" ? '#800026' :
-				   d = "Quarterly"  ? '#BD0026' ;
-			}
-			function style(feature) {
-			    return {
-				fillColor: getColor(feature.properties.Network),
-				weight: 2,
-				opacity: 1,
-				color: 'black',
-				fillOpacity: 0.8
-			    };
-			}
-			    
+	    
 
 			
 			var wells = { "type": "FeatureCollection",
@@ -75,7 +62,7 @@
 	
 			L.geoJSON(wells, {
 			    onEachFeature: onEachFeature
-			}, {style: style}).addTo(map);
+			}).addTo(map);
 
 			</script>
 		</div>
