@@ -35,13 +35,22 @@
 				layer.bindPopup("DGSID: "+feature.properties.DGSID+"<br>Screen top: "+feature.properties.screen_top+"<br>Screen bottom: "+feature.properties.screen_bottom+"<br>Date installed: "+feature.properties.date_installed);
 			    }
 			}
-			function onClick_Marker(e) {
-			  var marker = e.target;
-			  popup = L.popup()
-			    .setLatLng(marker.getLatLng())
-			    .setContent("The number id is: " + marker.wells.DGSID)
-			    .openOn(map);
+			function getColor(d) {
+			    return d = "Real Time" ? '#800026' :
+				   d = "Quarterly"  ? '#BD0026' ;
 			}
+			    
+			function style(feature) {
+			    return {
+				fillColor: getColor(feature.properties.Network),
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.8
+			    };
+			}
+
 			
 			var wells = { "type": "FeatureCollection",
 			  "features": [
@@ -64,9 +73,15 @@
 			    ]
 			  }
 
-			L.geoJSON(wells, {
-			    onEachFeature: onEachFeature
-			}).addTo(map);
+
+				
+			L.geoJson(wells, {
+			    pointToLayer: function (feature, latlng) {
+			      return new L.CircleMarker(latlng, {
+				radius: 10,
+				fillOpacity: 0.85,
+				color: getColor(feature.properties.Network),
+			      });
 				
 
 			</script>
