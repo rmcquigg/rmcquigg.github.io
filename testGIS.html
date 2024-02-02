@@ -1,0 +1,177 @@
+<!---DOCTYPE html--->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+  />
+  <title>DEGWMN</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #info {
+      background-color: white;
+      opacity: 1;
+      color: black;
+      border: solid #5B6DCD 2px;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 18pt;
+      padding: 20px;
+      visibility: hidden;
+    }
+    #close {
+      float:right;
+      display:inline-block;
+      padding:0x 0x
+      background:white
+    }
+    iframe {
+      height: 400px;
+      width: 600px;
+      background-color: white;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.4/"></script>
+
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/renderers/UniqueValueRenderer",
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/renderers/SimpleRenderer",
+      "dojo/dom",
+      "dojo/domReady!"
+    ], function(
+      Map,
+      MapView,
+      FeatureLayer,
+      SimpleRenderer,
+      UniqueValueRenderer,
+      SimpleLineSymbol,
+      dom
+    ) {
+
+      const popupWells = {
+        "title": "Well Info",
+        "content": "<b>DGSID:</b> {DGSID}<br><b>DNREC ID:</b> {DNRECID}<br><b>Aquifer:</b> {Aquifer}<br><b>Install date:</b> {DRILL_DATE}<br><b>Screen top:</b>                {SCREENTOP} ft<br><b>Screen base:</b>{SCREENBOT} ft"
+      }
+      const layer = new FeatureLayer({
+        <!---url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/RealTime_sites_view/FeatureServer",--->
+        url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/DEGWMN_Water_Level_Wells_view/FeatureServer",
+        outFields: ["*"],
+        popupTemplate: popupWells
+      });
+      
+      var map = new Map({
+        basemap: "streets",
+        layers: [layer]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-75.524578,39.163596],
+        zoom: 9
+      });
+
+      view.ui.add("info", "top-right");
+
+      // Set up a click event handler and retrieve the screen x, y coordinates
+      view.on("click", function(event) {
+        // the hitTest() checks to see if any graphics in the view
+        // intersect the given screen x, y coordinates
+        view.hitTest(event)
+          .then(getGraphics);
+      });
+
+      function getGraphics(response) {
+        // the topmost graphic from the click location
+        // and display select attribute values from the
+        // graphic to the user
+        var graphic = response.results[0].graphic;
+        var attributes = graphic.attributes;
+        var name = attributes.DATA_DOWN;
+        var wellname = attributes.DGSID;
+        var link = "https://data.dgs.udel.edu/sites/webwatlev/" + wellname + ".txt";
+        var graph = "https://data.dgs.udel.edu/wlgraph/index.html?dgsid=" + wellname;
+        var title = "<b>Well info</b>";
+        
+        dom.byId("info").style.visibility = "visible";
+        dom.byId("title").innerHTML = title;
+        dom.byId("name").innerHTML = "<a href=" + name + ">Download link</a>";;
+        dom.byId("welldgsid").innerHTML = "DGSID: " + wellname;
+        dom.byId("link").innerHTML = "<a href=" + link + " download=" + wellname + ">Click here to view data</a>";
+        
+        
+        dom.ById("datadis") = link;
+        var iframeSRC = dom.ById("datadis");
+        iframeSRC.src=link;
+        
+        
+        document.getElementById("myIframe").src=graph;
+        
+
+
+         const renderer = new SimpleRenderer({
+          symbol: {
+            "type": "simple-marker",
+            "style": "circle",
+            "color":"blue",
+            "outline":"black",
+            "width": "18px",
+            "opacity":0.8
+          }
+        });
+
+       
+        
+        layer.renderer = renderer;
+      }
+
+
+
+
+    });
+    
+  </script>
+
+
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <div id="info">
+    <span id="title"></span><br>
+    <span id="welldgsid"></span><br>
+    <span id="name"></span><br>
+    <span id="link"></span><br>
+    <!---<span id="datadis"></span><br>
+    <iframe id="datadis" frameBorder="0" title="showdata"></iframe>
+    <div><iframe id="myIframe"></iframe></div>
+    <div><iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid="+wellname frameBorder="0" title="graph"></iframe></div>--->
+    <div><iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid=wellname" frameBorder="0" title="graph"></iframe></div>
+    <div><iframe src="graph" frameBorder="0" title="graph"></iframe></div>
+
+    
+    
+
+  </div>
+  
+</body>
+
+</html>
