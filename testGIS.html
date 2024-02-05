@@ -55,7 +55,8 @@
       "esri/symbols/SimpleMarkerSymbol",
       "esri/renderers/SimpleRenderer",
       "dojo/dom",
-      "dojo/domReady!"
+      "dojo/domReady!",
+      "esri/layers/CSVLayer"
     ], function(
       Map,
       MapView,
@@ -63,7 +64,8 @@
       SimpleRenderer,
       UniqueValueRenderer,
       SimpleLineSymbol,
-      dom
+      dom,
+      CSVLayer
     ) {
 
       const popupWells = {
@@ -95,6 +97,7 @@
         view.hitTest(event)
           .then(getGraphics);
       });
+      
 
       function getGraphics(response) {
         // the topmost graphic from the click location
@@ -135,15 +138,14 @@
           }
         });
 
-       
-        
-        layer.renderer = renderer;
+      layer.renderer = renderer;
       }
-
-
-
-
     });
+    
+    
+    
+  
+
     
   </script>
 
@@ -159,10 +161,10 @@
     <span id="link"></span><br>
     <!---<span id="datadis"></span><br>
     <iframe id="datadis" frameBorder="0" title="showdata"></iframe>
-    <div><iframe id="myIframe"></iframe></div>
-    <div><iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid="+wellname frameBorder="0" title="graph"></iframe></div>--->
-    <div><iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid=wellname" frameBorder="0" title="graph"></iframe></div>
     <div><iframe src="graph" frameBorder="0" title="graph"></iframe></div>
+    <div><iframe id="myIframe"></iframe></div>--->
+    <div><iframe src="https://data.dgs.udel.edu/wlgraph/index.html?dgsid=wellname" frameBorder="0" title="graph"></iframe></div>
+
 
     
     
