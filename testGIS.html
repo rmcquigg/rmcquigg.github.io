@@ -68,11 +68,11 @@
 
       const popupWells = {
         "title": "Well Info",
-        "content": "<b>DGSID:</b> {DGSID}<br><b>DNREC ID:</b> {DNRECID}<br><b>Aquifer:</b> {Aquifer}<br><b>Install date:</b> {DRILL_DATE}<br><b>Screen top:</b>                {SCREENTOP} ft<br><b>Screen base:</b>{SCREENBOT} ft"
+        "content": "<b>DGSID:</b> {DGSID}<br><b>DNREC ID:</b> {DNRECID}<br><b>Aquifer:</b> {Aquifer}<br><b>Install date:</b> {DRILL_DATE}<br><b>Screen top:</b>{SCREENTOP} ft<br><b>Screen base:</b>{SCREENBOT} ft"
       }
       const layer = new FeatureLayer({
         <!---url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/RealTime_sites_view/FeatureServer",--->
-        url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/DEGWMN_Water_Level_Wells_view/FeatureServer",
+        url: "https://services.arcgis.com/DCPX1PuggGH4Tici/arcgis/rest/services/DEGWMN_Wells_view/FeatureServer",
         outFields: ["*"],
         popupTemplate: popupWells
       });
@@ -91,10 +91,7 @@
 
       view.ui.add("info", "top-right");
 
-      // Set up a click event handler and retrieve the screen x, y coordinates
       view.on("click", function(event) {
-        // the hitTest() checks to see if any graphics in the view
-        // intersect the given screen x, y coordinates
         view.hitTest(event)
           .then(getGraphics);
       });
